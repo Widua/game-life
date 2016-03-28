@@ -11,5 +11,12 @@ describe Game do
     it 'add to game universe' do
       expect(game.universe).to be_a(Universe)
     end
+
+    context 'created universe attributes' do
+      it 'add rows and columns from data' do
+        expect(game.universe.rows).to eq 10
+        expect(game.universe.columns).to eq 10
+      end
+    end
   end
 end
