@@ -5,7 +5,7 @@ class Game
 
   def initialize
     @data = first_data
-    @universe = Universe.new(5, 5)
+    @universe = Universe.new(rows, columns)
   end
 
   private
@@ -15,5 +15,13 @@ class Game
     initial_data = f.first.chomp.split(', ')
     f.close
     initial_data
+  end
+
+  def rows
+    data[0].to_i
+  end
+
+  def columns
+    data[1].to_i
   end
 end
