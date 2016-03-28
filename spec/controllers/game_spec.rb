@@ -1,3 +1,5 @@
+require './controllers/game'
+
 describe Game do
   describe 'build' do
     it 'add to game data' do
