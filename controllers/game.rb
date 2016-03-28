@@ -1,8 +1,11 @@
+require './models/universe'
+
 class Game
-  attr_accessor :data
+  attr_accessor :data, :universe
 
   def initialize
     @data = first_data
+    @universe = Universe.new(5, 5)
   end
 
   private
