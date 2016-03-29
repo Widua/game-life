@@ -1,9 +1,9 @@
 require './controllers/game'
 
 describe Game do
-  describe 'build' do
-    let(:game) { Game.new }
+  let(:game) { Game.new }
 
+  describe 'build' do
     it 'add to game universe' do
       expect(game.universe).to be_a(Universe)
     end
@@ -14,6 +14,14 @@ describe Game do
 
     it 'does not response to data' do
       expect{ game.data }.to raise_error(NoMethodError)
+    end
+  end
+
+
+  describe 'start' do
+    it 'revive cells with information coordinates' do
+      game.start
+      expect(game.universe.cells.first.living).to eq true
     end
   end
 end
