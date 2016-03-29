@@ -1,3 +1,5 @@
+require './models/information'
+
 describe Information do
   describe 'initialize' do
     let(:information) { Information.new }
