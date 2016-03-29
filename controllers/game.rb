@@ -1,9 +1,11 @@
 require './models/universe'
+require './models/information'
 
 class Game
-  attr_accessor :data, :universe
+  attr_accessor :information, :data, :universe
 
   def initialize
+    @information = Information.new
     @data = first_data
     @universe = Universe.new(rows, columns)
   end
