@@ -21,5 +21,10 @@ describe Universe do
       universe.revive_cells(information.coordinates)
       expect(universe.cells.first.living).to eq true
     end
+
+    it 'mark cells in table' do
+      universe.revive_cells(information.coordinates)
+      expect(universe.table[0][0]).to eq 1
+    end
   end
 end
