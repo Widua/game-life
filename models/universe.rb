@@ -38,7 +38,10 @@ class Universe
   end
 
   def update_table
-    living_cells = cells.select { |c| c.living }
     living_cells.each { |c| table[c.x][c.y] = 1 }
+  end
+
+  def living_cells
+    cells.select { |c| c.living }
   end
 end
