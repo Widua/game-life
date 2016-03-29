@@ -8,4 +8,8 @@ class Game
     @information = Information.new
     @universe = Universe.new(information.rows, information.columns)
   end
+
+  def start
+    universe.revive_cells(information.coordinates)
+  end
 end
