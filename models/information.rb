@@ -1,14 +1,19 @@
 class Information
-  attr_accessor :rows
+  attr_accessor :rows, :columns
 
   def initialize
     @rows = set_rows
+    @columns = set_columns
   end
 
   private
 
   def set_rows
     file_data[0].to_i
+  end
+
+  def set_columns
+    file_data[1].to_i
   end
 
   def file_data
