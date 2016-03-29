@@ -10,6 +10,13 @@ class Universe
     @cells = create_cells
   end
 
+  def revive_cells(coordinates)
+    coordinates.each do |coordinate|
+      cell = cells.find { |c| c.x == coordinate[0] && c.y == coordinate[1] }
+      cell.toggle!
+    end
+  end
+
   private
 
   def fill_table
