@@ -27,4 +27,21 @@ describe Universe do
       expect(universe.table[0][0]).to eq 1
     end
   end
+
+  describe 'display' do
+    let(:universe) { Universe.new(5,5) }
+    let(:information) { Information.new }
+
+    before do
+      universe.revive_cells(information.coordinates)
+    end
+
+    it 'mark living cells as *' do
+      expect(universe.display.count('*')).to eq 5
+    end
+
+    it 'mark dead cells as empty char' do
+      expect(universe.display.count('')).to eq 20
+    end
+  end
 end
