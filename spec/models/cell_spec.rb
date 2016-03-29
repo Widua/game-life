@@ -20,11 +20,13 @@ describe Cell do
 
   describe 'toggle' do
     it 'change living to true' do
-      expect(cell.toggle!).to eq true
+      cell.toggle!
+      expect(cell.living).to eq true
     end
 
     it 'change living to false' do
       cell.living = true
+      cell.toggle!
       expect(cell.living).to eq false
     end
   end

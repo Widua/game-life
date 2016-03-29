@@ -6,4 +6,8 @@ class Cell
     @y = y
     @living = false
   end
+
+  def toggle!
+    @living = !living
+  end
 end
