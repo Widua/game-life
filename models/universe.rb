@@ -15,6 +15,8 @@ class Universe
       cell = cells.find { |c| c.x == coordinate[0] && c.y == coordinate[1] }
       cell.toggle!
     end
+
+    update_table
   end
 
   private
@@ -33,5 +35,10 @@ class Universe
     end
 
     cells
+  end
+
+  def update_table
+    living_cells = cells.select { |c| c.living }
+    living_cells.each { |c| table[c.x][c.y] = 1 }
   end
 end
