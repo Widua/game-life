@@ -19,6 +19,16 @@ class Universe
     update_table
   end
 
+  def display
+    display_string = ''
+
+    table.each do |row|
+      display_string += row.to_s.delete('[], ').gsub('0', ' ').gsub('1', '*') + "\n"
+    end
+
+    display_string
+  end
+
   private
 
   def fill_table

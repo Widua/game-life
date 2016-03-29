@@ -41,7 +41,7 @@ describe Universe do
     end
 
     it 'mark dead cells as empty char' do
-      expect(universe.display.count('')).to eq 20
+      expect(universe.display.count(' ')).to eq 20
     end
   end
 end
