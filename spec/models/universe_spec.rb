@@ -65,4 +65,10 @@ describe Universe do
       expect(universe.cell_worthy_living?(1, 1, 1)).to eq false
     end
   end
+
+  describe 'redraw' do
+    it 'return living worthy cell coordinates' do
+      expect(universe.redraw).to eq [[0,1],[1,2],[2,0],[2,1],[2,2]]
+    end
+  end
 end
