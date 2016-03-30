@@ -29,33 +29,6 @@ class Universe
     display_string
   end
 
-  def living_neighbors_count(x,y)
-    count = 0
-
-    (-1..1).each do |i|
-      (-1..1).each do |j|
-        next if not_available?(x, y, i, j)
-
-        cx = i < 0 ? x - 1 : x + i
-        cy = j < 0 ? y - 1 : y + j
-
-        count += 1 if table[cx][cy] == 1
-      end
-    end
-
-    count
-  end
-
-  def cell_worthy_living?(cell_value, x, y)
-    count = living_neighbors_count(x,y)
-
-    if cell_value.zero?
-      count == 3 ? true : false
-    else
-      [2, 3].include?(count) ? true : false
-    end
-  end
-
   def redraw
     coordinates = []
 
@@ -65,8 +38,7 @@ class Universe
       end
     end
 
-    table = fill_table
-    living_cells.map(&:toggle!)
+    clear_table
     coordinates
   end
 
@@ -100,5 +72,41 @@ class Universe
     i < 0 && x + i < 0 || i > 0 && x + i > rows - 1 ||
     j < 0 && y + j < 0 || j > 0 && y + j > columns - 1 ||
     i == 0 && j == 0
+  end
+
+  def living_neighbors_count(x,y)
+    count = 0
+
+    (-1..1).each do |i|
+      (-1..1).each do |j|
+        next if not_available?(x, y, i, j)
+
+        cx = i < 0 ? x - 1 : x + i
+        cy = j < 0 ? y - 1 : y + j
+
+        count += 1 if table[cx][cy] == 1
+      end
+    end
+
+    count
+  end
+
+  def cell_worthy_living?(cell_value, x, y)
+    count = living_neighbors_count(x,y)
+
+    if cell_value.zero?
+      count == 3 ? true : false
+    else
+      [2, 3].include?(count) ? true : false
+    end
+  end
+
+  def clear_table
+    table = fill_table
+    kill_living_cells
+  end
+
+  def kill_living_cells
+    living_cells.map(&:toggle!)
   end
 end

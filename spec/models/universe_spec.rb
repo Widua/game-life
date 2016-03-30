@@ -43,26 +43,26 @@ describe Universe do
 
   describe 'living_neighbors_count' do
     it 'return number of living cell near' do
-      expect(universe.living_neighbors_count(0, 0)).to eq 1
-      expect(universe.living_neighbors_count(0, 1)).to eq 3
-      expect(universe.living_neighbors_count(1, 2)).to eq 2
+      expect(universe.send :living_neighbors_count, 0, 0).to eq 1
+      expect(universe.send :living_neighbors_count, 0, 1).to eq 3
+      expect(universe.send :living_neighbors_count, 1, 2).to eq 2
     end
   end
 
   describe 'cell_worthy_living?' do
     it 'return true if cell dead and have 3 living neighbors cells' do
       cell = universe.cells[1]
-      expect(universe.cell_worthy_living?(0, 0, 1)).to eq true
+      expect(universe.send :cell_worthy_living?, 0, 0, 1).to eq true
     end
 
     it 'return true if cell living and have 2 or 3 living neighbors cells' do
       cell = universe.cells[7]
-      expect(universe.cell_worthy_living?(1, 1, 2)).to eq true
+      expect(universe.send :cell_worthy_living?, 1, 1, 2).to eq true
     end
 
     it 'return false otherwise' do
       cell = universe.cells[6]
-      expect(universe.cell_worthy_living?(1, 1, 1)).to eq false
+      expect(universe.send :cell_worthy_living?, 1, 1, 1).to eq false
     end
   end
 
