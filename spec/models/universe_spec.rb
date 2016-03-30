@@ -84,5 +84,20 @@ describe Universe do
         end
       end
     end
+
+    context 'revive cells with new coordinates' do
+      it 'call revive_cells' do
+        expect(universe).to receive(:revive_cells)
+        universe.redraw
+      end
+
+      it 'cells with new coordinates have living true' do
+        universe.redraw
+        [[0,1],[1,2],[2,0],[2,1],[2,2]].each do |element|
+          cell = universe.cells.find { |c| c.x == element[0] && c.y == element[1] }
+          expect(cell.living).to eq true
+        end
+      end
+    end
   end
 end
