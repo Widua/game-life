@@ -38,5 +38,11 @@ describe Game do
       expect(game.viewer).not_to receive(:show)
       game.start
     end
+
+    it 'call viwer finisg when game over' do
+      allow(game.universe).to receive(:living_cells).and_return([])
+      expect(game.viewer).to receive(:finish)
+      game.start
+    end
   end
 end
