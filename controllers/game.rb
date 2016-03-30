@@ -17,5 +17,7 @@ class Game
     while universe.living_cells.count > 0
       viewer.show(universe)
     end
+
+    viewer.finish
   end
 end
