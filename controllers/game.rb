@@ -23,3 +23,5 @@ class Game
     viewer.finish
   end
 end
+
+Game.new.start
