@@ -13,5 +13,10 @@ describe Viewer do
       expect(viewer).to receive(:system).with('clear')
       viewer.show(universe)
     end
+
+    it 'after output redraw universe' do
+      expect(universe).to receive(:redraw)
+      viewer.show(universe)
+    end
   end
 end
