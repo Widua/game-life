@@ -34,9 +34,7 @@ class Universe
 
     (-1..1).each do |i|
       (-1..1).each do |j|
-        next if i < 0 && x + i < 0 || i > 0 && x + i > rows - 1
-        next if j < 0 && y + j < 0 || j > 0 && y + j > columns - 1
-        next if i == 0 && j == 0
+        next if not_available?(x, y, i, j)
 
         cx = i < 0 ? x - 1 : x + i
         cy = j < 0 ? y - 1 : y + j
@@ -72,5 +70,11 @@ class Universe
 
   def living_cells
     cells.select { |c| c.living }
+  end
+
+  def not_available?(x, y, i, j)
+    i < 0 && x + i < 0 || i > 0 && x + i > rows - 1 ||
+    j < 0 && y + j < 0 || j > 0 && y + j > columns - 1 ||
+    i == 0 && j == 0
   end
 end
