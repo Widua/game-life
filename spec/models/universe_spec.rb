@@ -1,4 +1,5 @@
 require './models/universe'
+require './models/information'
 
 describe Universe do
   let(:universe) { Universe.new(5,5) }
@@ -45,6 +46,23 @@ describe Universe do
       expect(universe.living_neighbors_count(0, 0)).to eq 1
       expect(universe.living_neighbors_count(0, 1)).to eq 3
       expect(universe.living_neighbors_count(1, 2)).to eq 2
+    end
+  end
+
+  describe 'cell_worthy_living?' do
+    it 'return true if cell dead and have 3 living neighbors cells' do
+      cell = universe.cells[1]
+      expect(universe.cell_worthy_living?(0, 0, 1)).to eq true
+    end
+
+    it 'return true if cell living and have 2 or 3 living neighbors cells' do
+      cell = universe.cells[7]
+      expect(universe.cell_worthy_living?(1, 1, 2)).to eq true
+    end
+
+    it 'return false otherwise' do
+      cell = universe.cells[6]
+      expect(universe.cell_worthy_living?(1, 1, 1)).to eq false
     end
   end
 end
