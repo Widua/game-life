@@ -56,6 +56,18 @@ class Universe
     end
   end
 
+  def redraw
+    coordinates = []
+
+    table.each_with_index do |rows, x|
+      rows.each_with_index do |cell_value, y|
+        coordinates << [x,y] if cell_worthy_living?(cell_value, x, y)
+      end
+    end
+
+    coordinates
+  end
+
   private
 
   def fill_table
