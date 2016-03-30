@@ -27,7 +27,7 @@ describe Viewer do
 
   describe 'finish' do
     it 'retun game over' do
-      expect(viewer.finish).to eq 'Game Over'
+      expect{ viewer.finish }.to output("Game Over\n").to_stdout
     end
   end
 end

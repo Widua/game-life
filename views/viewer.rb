@@ -7,6 +7,6 @@ class Viewer
   end
 
   def finish
-    'Game Over'
+    puts 'Game Over'
   end
 end
