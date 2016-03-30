@@ -39,7 +39,7 @@ class Universe
     end
 
     clear_table
-    coordinates
+    revive_cells(coordinates)
   end
 
   def living_cells
