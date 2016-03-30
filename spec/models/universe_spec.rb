@@ -70,5 +70,19 @@ describe Universe do
     it 'return living worthy cell coordinates' do
       expect(universe.redraw).to eq [[0,1],[1,2],[2,0],[2,1],[2,2]]
     end
+
+    context 'clear_table' do
+      it 'clear table' do
+        expect(universe).to receive(:fill_table)
+        universe.redraw
+      end
+
+      it 'kill living cells' do
+        universe.living_cells.each do |cell|
+          universe.redraw
+          expect(cell.living).to eq false
+        end
+      end
+    end
   end
 end

@@ -68,6 +68,10 @@ class Universe
     coordinates
   end
 
+  def living_cells
+    cells.select { |c| c.living }
+  end
+
   private
 
   def fill_table
@@ -88,10 +92,6 @@ class Universe
 
   def update_table
     living_cells.each { |c| table[c.x][c.y] = 1 }
-  end
-
-  def living_cells
-    cells.select { |c| c.living }
   end
 
   def not_available?(x, y, i, j)
