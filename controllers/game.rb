@@ -13,6 +13,9 @@ class Game
 
   def start
     universe.revive_cells(information.coordinates)
-    viewer.show(universe)
+
+    while universe.living_cells.count > 0
+      viewer.show(universe)
+    end
   end
 end
