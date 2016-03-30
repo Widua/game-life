@@ -29,6 +29,25 @@ class Universe
     display_string
   end
 
+  def living_neighbors_count(x,y)
+    count = 0
+
+    (-1..1).each do |i|
+      (-1..1).each do |j|
+        next if i < 0 && x + i < 0 || i > 0 && x + i > rows - 1
+        next if j < 0 && y + j < 0 || j > 0 && y + j > columns - 1
+        next if i == 0 && j == 0
+
+        cx = i < 0 ? x - 1 : x + i
+        cy = j < 0 ? y - 1 : y + j
+
+        count += 1 if table[cx][cy] == 1
+      end
+    end
+
+    count
+  end
+
   private
 
   def fill_table
