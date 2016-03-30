@@ -46,6 +46,16 @@ class Universe
     count
   end
 
+  def cell_worthy_living?(cell_value, x, y)
+    count = living_neighbors_count(x,y)
+
+    if cell_value.zero?
+      count == 3 ? true : false
+    else
+      [2, 3].include?(count) ? true : false
+    end
+  end
+
   private
 
   def fill_table
