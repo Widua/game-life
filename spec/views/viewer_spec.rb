@@ -1,4 +1,7 @@
+require './views/viewer'
+
 describe Viewer do
+  let(:viewer) { Viewer.new }
   let(:universe) { Universe.new(5,10) }
 
   describe 'show' do
