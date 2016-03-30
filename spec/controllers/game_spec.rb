@@ -25,7 +25,7 @@ describe Game do
   describe 'start' do
     it 'revive cells with information coordinates' do
       game.start
-      expect(game.universe.living_cells).not_to be_nil
+      expect(game.universe.living_cells).not_to be_empty
     end
 
     it 'call viewer show' do

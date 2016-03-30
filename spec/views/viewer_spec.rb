@@ -18,5 +18,10 @@ describe Viewer do
       expect(universe).to receive(:redraw)
       viewer.show(universe)
     end
+
+    it 'it suspend thread' do
+      expect(viewer).to receive(:sleep).with(0.5)
+      viewer.show(universe)
+    end
   end
 end
