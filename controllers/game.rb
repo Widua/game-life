@@ -13,5 +13,6 @@ class Game
 
   def start
     universe.revive_cells(information.coordinates)
+    viewer.show(universe)
   end
 end
