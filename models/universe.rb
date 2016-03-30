@@ -102,7 +102,7 @@ class Universe
   end
 
   def clear_table
-    table = fill_table
+    @table = fill_table
     kill_living_cells
   end
 

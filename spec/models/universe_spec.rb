@@ -67,18 +67,9 @@ describe Universe do
   end
 
   describe 'redraw' do
-    context 'clear_table' do
-      it 'clear table' do
-        expect(universe).to receive(:fill_table)
-        universe.redraw
-      end
-
-      it 'kill living cells' do
-        universe.living_cells.each do |cell|
-          universe.redraw
-          expect(cell.living).to eq false
-        end
-      end
+    it 'clear table' do
+      expect(universe).to receive(:clear_table)
+      universe.redraw
     end
 
     context 'revive cells with new coordinates' do
