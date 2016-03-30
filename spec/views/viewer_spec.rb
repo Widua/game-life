@@ -24,4 +24,10 @@ describe Viewer do
       viewer.show(universe)
     end
   end
+
+  describe 'finish' do
+    it 'retun game over' do
+      expect(viewer.finish).to eq 'Game Over'
+    end
+  end
 end
