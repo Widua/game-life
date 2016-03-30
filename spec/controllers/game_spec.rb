@@ -27,5 +27,10 @@ describe Game do
       game.start
       expect(game.universe.cells.first.living).to eq true
     end
+
+    it 'call viewer show' do
+      expect(game.viewer).to receive(:show).with(game.universe)
+      game.start
+    end
   end
 end
