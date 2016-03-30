@@ -15,6 +15,10 @@ describe Game do
     it 'does not response to data' do
       expect{ game.data }.to raise_error(NoMethodError)
     end
+
+    it 'add to game viewer' do
+      expect(game.viewer).to be_a(Viewer)
+    end
   end
 
 
