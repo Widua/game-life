@@ -44,5 +44,11 @@ describe Game do
       expect(game.viewer).to receive(:finish)
       game.start
     end
+
+    it 'game over when table not changed' do
+      game.information.coordinates = [[0,0], [0,1], [1,0], [1,1]]
+      expect(game.viewer).to receive(:finish)
+      game.start
+    end
   end
 end
