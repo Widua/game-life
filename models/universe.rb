@@ -65,6 +65,8 @@ class Universe
       end
     end
 
+    table = fill_table
+    living_cells.map(&:toggle!)
     coordinates
   end
 
