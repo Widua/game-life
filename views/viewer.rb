@@ -5,4 +5,8 @@ class Viewer
     universe.redraw
     sleep 0.5
   end
+
+  def finish
+    'Game Over'
+  end
 end
