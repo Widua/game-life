@@ -32,5 +32,11 @@ describe Game do
       expect(game.viewer).to receive(:show).with(game.universe)
       game.start
     end
+
+    it 'not call viewer when does not exists living cells' do
+      allow(game.universe).to receive(:living_cells).and_return([])
+      expect(game.viewer).not_to receive(:show)
+      game.start
+    end
   end
 end
